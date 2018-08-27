@@ -11,10 +11,10 @@ The ability to efficiently generate image datasets in such a fashion has many mo
 
 I created this repository to demonstrate how I create a dataset of synthetic images with annotated pixels as numpy arrays, as shown below:
 
-<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/gray0.png" width="300">   <img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/gray1.png" width="300"> 
-<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/red0.png" width="300">   <img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/red1.png" width="300"> 
-<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/green0.png" width="300">   <img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/green1.png" width="300"> 
-<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/blue0.png" width="300">   <img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/blue1.png" width="300">
+<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/gray0.png" width="300"><img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/gray1.png" width="300"> 
+<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/red0.png" width="300"><img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/red1.png" width="300"> 
+<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/green0.png" width="300"><img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/green1.png" width="300"> 
+<img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/blue0.png" width="300"><img src="https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/blue1.png" width="300">
 
 
 ## Learning Semantic Segmentation w/a Fully Convolutional Network (from scratch)
@@ -22,12 +22,21 @@ I achieved decent performance with a minimal, 3-layer FCN. PyTorch version 0.4.0
 
 As a note on deep fully convolutional nets, it is usually recommended to first downsample feature maps and then upsample them with transpose convolutions, but for this trivial toy task, I found that this slowed down my training by adding unnecessary depth to my shallow network.
 
-Here is an example of the progression of model's learning on validation samples (segmentation images are captioned with the epoch), after about 10 minutes of training on my gpu-enabled laptop:
+Here is an example of the progression of the model's learning on validation samples, after about 10 minutes of training on my gpu-enabled laptop:
 
+Epoch 0:  
 ![Epoch 0](https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/viz_0.png)
+
+Epoch 150:  
 ![Epoch 150](https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/viz_150.png)
+
+Epoch 300:  
 ![Epoch 300](https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/viz_300.png)
+
+Epoch 450:  
 ![Epoch 450](https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/viz_450.png)
+
+Epoch 500:  
 ![Epoch 500](https://github.com/gnouhp/Synthetic-Segmentation/blob/master/repo_images/viz_500.png)
 
 The resolution of the model's class predictions continues to improve with more training epochs, but 500 iterations of gradient descent was sufficient for the purpose of this toy segmentation task. 
